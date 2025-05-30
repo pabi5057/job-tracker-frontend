@@ -2,7 +2,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Button } from './ui/button';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { setSearchedQuery } from '@/redux/jobSlice';
+import {  setSearchJobByText } from '@/redux/jobSlice';
 import { useEffect, useState } from 'react';
 
 const category = [
@@ -26,7 +26,7 @@ const CategoryCarousel = () => {
 
     useEffect(() => {
         if (selectedValue) {
-            dispatch(setSearchedQuery({ query: selectedValue }));
+            dispatch(setSearchJobByText( selectedValue ));
             navigate("/");
         }
     }, [selectedValue,dispatch, navigate]);

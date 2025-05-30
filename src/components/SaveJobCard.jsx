@@ -13,6 +13,7 @@ import { useSelector } from "react-redux";
 const SaveJobCard = () => {
     const [savedJobs, setSavedJobs] = useState([]);
     const { user } = useSelector(store => store.auth);
+    const [loading,setLoading]=useState(true);
 
     const navigate = useNavigate();
   
@@ -28,7 +29,9 @@ const SaveJobCard = () => {
             withCredentials: true,
         });
         if (res?.data?.success) {
+            setLoading(false);
             setSavedJobs(res?.data?.saveJob);
+
         }
     }
 
@@ -52,6 +55,9 @@ const SaveJobCard = () => {
             <Navbar />
             <div className="max-w-7xl mx-auto mt-5 px-4">
                 <h1 className="text-2xl font-bold mb-4">Saved Jobs</h1>
+                {
+                    loading?"loading.....":(
+                        <>
                 {savedJobs?.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {savedJobs?.map((savedJob, index) => (
@@ -100,6 +106,9 @@ const SaveJobCard = () => {
                 ) : (
                     <p>No saved jobs found.</p>
                 )}
+                        </>
+                    )
+                }
 
             </div>
         </div>

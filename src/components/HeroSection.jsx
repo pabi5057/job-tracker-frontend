@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button } from './ui/button'
 import { Search } from 'lucide-react'
 import { useDispatch } from 'react-redux';
-import { setSearchedQuery } from '@/redux/jobSlice';
+import { setSearchedQuery, setSearchJobByText } from '@/redux/jobSlice';
 import { useNavigate } from 'react-router-dom';
 import { Typewriter } from 'react-simple-typewriter';
 
@@ -10,20 +10,10 @@ const HeroSection = () => {
     const [query, setQuery] = useState("");
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const debounceTimeout = useRef(null);
 
-
-        useEffect(() => {
-        if (query === "") return;
-        if (debounceTimeout.current) clearTimeout(debounceTimeout.current);
-
-        debounceTimeout.current = setTimeout(() => {
-            dispatch(setSearchedQuery({ query }));
-            navigate("/");
-        }, 500); 
-
-        return () => clearTimeout(debounceTimeout.current);
-    }, [query, dispatch, navigate]);
+      useEffect(() => {
+        dispatch(setSearchJobByText(query));
+      }, [query,dispatch]);
 
         const searchJobHandler = () => {
         if (query.trim() !== "") {
@@ -33,6 +23,7 @@ const HeroSection = () => {
         }
     }
 
+    
     return (
         <div className='text-center'>
             <div className='flex flex-col gap-5 my-10'>
