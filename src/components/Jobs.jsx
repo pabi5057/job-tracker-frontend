@@ -37,7 +37,7 @@ const Jobs = () => {
       <div className="max-w-7xl mx-auto mt-5 px-4">
         {/* Filter Toggle Button for Mobile */}
         <button
-          className="lg:hidden flex items-center gap-2 p-2 mb-4 bg-blue-600 text-white rounded"
+          className="lg:hidden flex items-center gap-2 p-2 mb-4 bg-[#6A38C2] hover:bg-[#5b30a6] text-white rounded"
           onClick={() => setIsFilterOpen(!isFilterOpen)}
         >
           <ArrowDownWideNarrow /> Filter Jobs

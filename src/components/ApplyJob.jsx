@@ -152,6 +152,7 @@ const ApplyJob = () => {
                         onChange={handleFileChange}
                         accept=".doc,.pdf,.docx,.rtf,.odt"
                         className="absolute inset-0 opacity-0 cursor-pointer"
+                        required
                     />
                     <p className="text-[#6A38C2] font-medium"> {formData.file ? formData.file.name : "Upload Resume"}</p>
                     <p className="text-sm text-gray-500 mt-2 text-center">

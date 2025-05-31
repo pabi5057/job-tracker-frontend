@@ -49,7 +49,7 @@ const CompanyCreate = () => {
                     onChange={(e) => setCompanyName(e.target.value)}
                 />
                 <div className='flex items-center gap-2 my-10'>
-                    <Button className="bg-[#6A38C2]/80 hover:bg-[#6A38d9]" variant="outline" onClick={() => navigate("/admin/companies")}>Cancel</Button>
+                    <Button className="bg-[#6A38C2]/80 hover:bg-[#6A38d9] text-white" variant="outline" onClick={() => navigate("/admin/companies")}>Cancel</Button>
                     <Button className="bg-[#6A38C2]/80 hover:bg-[#6A38d9]" onClick={registerNewCompany}>Continue</Button>
                 </div>
             </div>
